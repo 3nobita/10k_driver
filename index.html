@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver</title>
+    <style>
+        body {
+            background-color: #ccc;
+            font-family: sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .input-container {
+            margin: auto;
+            padding: 3px;
+            text-align: left;
+            width: 90%;
+            max-width: 400px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input {
+            width: calc(100% - 12px);
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        #form-container {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1{
+            color: rgb(73, 80, 65);
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">Driver's</h1>
+
+    <div id="form-container">
+        <form id="Driver-form" action="submit-info">
+
+
+                <div class="input-container">
+                    <label id="name-label" for="name">Pilot Name</label>
+                    <input id="name" name="name" type="text" placeholder="Beatriz Eric" required>
+                    <label id="number-label" for="number">Number</label>
+                    <input id="number" name="number" type="text" placeholder="952642385669" required>
+                    <label id="Location-label" for="Location">Pick-Location</label>
+                    <input id="Location" name="Location" type="text" placeholder="Latitude: 68.69507, Longitude: 162.97563" required>
+                    <label id="Date/Time-label" for="Date/Time">Date/Time</label>
+                    <input id="Date/Time" name="Date/Time" type="text" placeholder="7/8/24 | 7:14AM" required>
+                </div>
+        </form>
+    </div>
+</body>
+
+</html>
