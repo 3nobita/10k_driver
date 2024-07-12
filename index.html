@@ -1,94 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Driver</title>
+    <title>Form Notifications</title>
     <style>
         body {
-            background-color: #ccc;
-            font-family: sans-serif;
-            text-align: center;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #e0f7fa;
             margin: 0;
-            padding: 0;
+            padding: 20px;
         }
-        
-        .input-container {
-            margin: auto;
-            padding: 3px;
-            text-align: left;
-            width: 90%;
-            max-width: 400px;
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        
-        label {
-            display: block;
-            margin-bottom: 5px;
+
+        header img {
+            max-width: 100px;
+            height: auto;
         }
-        
-        input {
-            width: calc(100% - 12px);
-            padding: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+
+        header h1 {
+            font-size: 26px;
+            text-transform: uppercase;
+            margin: 0;
+            color: #00695c;
         }
-        
-        #form-container {
-            background: white;
-            padding: 10px;
-            border-radius: 4px;
-            width: 90%;
+
+        .form-container {
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #00897b;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             max-width: 600px;
             margin: 20px auto;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        h1{
-            color: rgb(73, 80, 65);
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: #004d40;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #00796b;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #b2dfdb;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-actions button {
+            padding: 12px 20px;
+            background-color: #00796b;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-actions button:hover {
+            background-color: #004d40;
+        }
+
+        .form-group span {
+            display: block;
+            padding: 10px;
+            background: #f1f1f1;
+            border-radius: 6px;
+            border: 1px solid #b2dfdb;
+        }
+
+        .form-selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-selector button {
+            padding: 15px;
+            background-color: #00796b;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            display: block;
+            width: 100%;
+            text-align: left;
+            position: relative;
+        }
+
+        .form-selector button:hover {
+            background-color: #004d40;
+        }
+
+        .form-selector button::after {
+            content: '\25BC';
+            position: absolute;
+            right: 15px;
+            font-size: 16px;
         }
     </style>
+    <script>
+        function showForm(formId) {
+            const forms = document.querySelectorAll('.form-container');
+            forms.forEach(form => {
+                form.style.display = 'none';
+            });
+            document.getElementById(formId).style.display = 'block';
+        }
+    </script>
 </head>
-
 <body>
-    <h1 id="title">Driver's</h1>
 
-    <div id="form-container">
-        <form id="Driver-form" action="submit-info">
+<header>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJOtMlU4h8E4mfpgL1LxAi7j9peIdInZHsKlPfg3ciMColbQXYFZRGndw4hADpGQQ5rDEo5xZMQ4cRWaxaDhnwyRrVTob6VwD79xfVKDPWwReIJKj4KSWpKUdWZrNZzxPirQuwq1d2hhK5K9JUQYgt0Yv8XuJdzoGX25MOIhjAUsSmY4HBThol1e-KXvQ/s367/CEA-removebg-preview.png" alt="CAE Simulation Training Private Limited">
+    <h1>CAE Simulation Training Private Limited</h1>
+</header>
 
+<div class="form-selector">
+    <button onclick="showForm('form1')">Passenger: Jane Smith</button>
+    <button onclick="showForm('form2')">Passenger: John Doe</button>
+    <button onclick="showForm('form3')">Passenger: Emily Johnson</button>
+</div>
 
-                <div class="input-container">
-                    <label id="name-label" for="name">Pilot Name : Beatriz Eric</label>
-                    <label id="number-label" for="number">Number : 88446641351</label>
-                    <label id="Location-label" for="Location">Pick-Location : Latitude: 68.69507, </label>
-                    <label id="Date/Time-label" for="Date/Time">Date/Time : 7/8/24 | 7:14AM</label>
-                </div>
-        </form>
-    </div>
-    <div id="form-container">
-        <form id="Driver-form" action="submit-info">
+<div id="form1" class="form-container">
+    <form>
 
+        <div class="form-group">
+            <label for="date1">Date:</label>
+            <span>2024-07-12</span>
+        </div>
 
-                <div class="input-container">
-                    <label id="name-label" for="name">Pilot Name : Beatriz Eric</label>
-                    <label id="number-label" for="number">Number : 88446641351</label>
-                    <label id="Location-label" for="Location">Pick-Location : Latitude: 68.69507, </label>
-                    <label id="Date/Time-label" for="Date/Time">Date/Time : 7/8/24 | 7:14AM</label>
-                </div>
-        </form>
-    </div>
-    <div id="form-container">
-        <form id="Driver-form" action="submit-info">
+        <div class="form-group">
+            <label for="driverId1">Driver ID/Name:</label>
+            <span>John Doe</span>
+        </div>
 
+        <div class="form-group">
+            <label for="cabNumber1">Cab Number:</label>
+            <span>XYZ1234</span>
+        </div>
 
-                <div class="input-container">
-                    <label id="name-label" for="name">Pilot Name : Beatriz Eric</label>
-                    <label id="number-label" for="number">Number : 88446641351</label>
-                    <label id="Location-label" for="Location">Pick-Location : Latitude: 68.69507, </label>
-                    <label id="Date/Time-label" for="Date/Time">Date/Time : 7/8/24 | 7:14AM</label>
-                </div>
-        </form>
-    </div>
+        <div class="form-group">
+            <label for="passengerName1">Passenger Name:</label>
+            <span>Jane Smith</span>
+        </div>
+
+        <div class="form-group">
+            <label for="pickupLocation1">Pickup Location:</label>
+            <span>Main Street, City A</span>
+        </div>
+
+        <div class="form-group">
+            <label for="dropOffLocation1">Drop-Off Location:</label>
+            <span>Market Road, City B</span>
+        </div>
+
+        <div class="form-group">
+            <label for="timeToPickUp1">Time to Pick Up:</label>
+            <span>08:00 AM</span>
+        </div>
+
+        <div class="form-group">
+            <label for="timeToDropOff1">Time to Drop-Off:</label>
+            <span>09:00 AM</span>
+        </div>
+
+        <div class="form-group">
+            <label for="distanceTraveled1">Distance Traveled (km):</label>
+            <input type="number" id="distanceTraveled1" name="distanceTraveled1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tollUsage1">Toll Usage:</label>
+            <input type="text" id="tollUsage1" name="tollUsage1" required>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+<div id="form2" class="form-container">
+    <form>
+
+        <div class="form-group">
+            <label for="date2">Date:</label>
+            <span>2024-07-12</span>
+        </div>
+
+        <div class="form-group">
+            <label for="driverId2">Driver ID/Name:</label>
+            <span>John Doe</span>
+        </div>
+
+        <div class="form-group">
+            <label for="cabNumber2">Cab Number:</label>
+            <span>XYZ5678</span>
+        </div>
+
+        <div class="form-group">
+            <label for="passengerName2">Passenger Name:</label>
+            <span>John Doe</span>
+        </div>
+
+        <div class="form-group">
+            <label for="pickupLocation2">Pickup Location:</label>
+            <span>Main Street, City B</span>
+        </div>
+
+        <div class="form-group">
+            <label for="dropOffLocation2">Drop-Off Location:</label>
+            <span>Market Road, City C</span>
+        </div>
+
+        <div class="form-group">
+            <label for="timeToPickUp2">Time to Pick Up:</label>
+            <span>10:00 AM</span>
+        </div>
+
+        <div class="form-group">
+            <label for="timeToDropOff2">Time to Drop-Off:</label>
+            <span>11:00 AM</span>
+        </div>
+
+        <div class="form-group">
+            <label for="distanceTraveled2">Distance Traveled (km):</label>
+            <input type="number" id="distanceTraveled2" name="distanceTraveled2" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tollUsage2">Toll Usage:</label>
+            <input type="text" id="tollUsage2" name="tollUsage2" required>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+<div id="form3" class="form-container">
+    <form>
+
+        <div class="form-group">
+            <label for="date3">Date:</label>
+            <span>2024-07-12</span>
+        </div>
+
+        <div class="form-group">
+            <label for="driverId3">Driver ID/Name:</label>
+            <span>Emily Johnson</span>
+        </div>
+
+        <div class="form-group">
+            <label for="cabNumber3">Cab Number:</label>
+            <span>XYZ9101</span>
+        </div>
+
+        <div class="form-group">
+            <label for="passengerName3">Passenger Name:</label>
+            <span>Emily Johnson</span>
+        </div>
+
+        <div class="form-group">
+            <label for="pickupLocation3">Pickup Location:</label>
+            <span>Main Street, City C</span>
+        </div>
+
+        <div class="form-group">
+            <label for="dropOffLocation3">Drop-Off Location:</label>
+            <span>Market Road, City D</span>
+        </div>
+
+        <div class="form-group">
+            <label for="timeToPickUp3">Time to Pick Up:</label>
+            <span>01:00 PM</span>
+        </div>
+
+        <div class="form-group">
+            <label for="timeToDropOff3">Time to Drop-Off:</label>
+            <span>02:00 PM</span>
+        </div>
+
+        <div class="form-group">
+            <label for="distanceTraveled3">Distance Traveled (km):</label>
+            <input type="number" id="distanceTraveled3" name="distanceTraveled3" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tollUsage3">Toll Usage:</label>
+            <input type="text" id="tollUsage3" name="tollUsage3" required>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
 </body>
-
 </html>
